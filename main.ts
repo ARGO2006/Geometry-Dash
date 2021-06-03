@@ -3,24 +3,7 @@ namespace SpriteKind {
     export const Face = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
-    newSpike = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . 9 . . . . . . . . 
-        . . . . . . . 9 . . . . . . . . 
-        . . . . . . 9 3 9 . . . . . . . 
-        . . . . . . 9 9 9 . . . . . . . 
-        . . . . . 9 9 3 9 9 . . . . . . 
-        . . . . . 9 3 9 9 9 . . . . . . 
-        . . . . 9 3 9 3 9 9 9 . . . . . 
-        . . . . 9 9 3 9 9 9 9 . . . . . 
-        . . . 9 9 3 9 3 9 9 9 9 . . . . 
-        . . . 9 3 9 3 9 9 9 9 9 . . . . 
-        . . 9 3 9 3 9 3 9 9 9 9 9 . . . 
-        . . 9 9 3 9 3 9 9 9 9 9 9 . . . 
-        . 9 9 3 9 3 9 9 9 9 9 9 9 9 . . 
-        . 9 9 9 9 9 9 9 9 9 9 9 9 9 . . 
-        `, SpriteKind.Spike)
+    newSpike = sprites.create(assets.tile`myTile1`, SpriteKind.Spike)
     newSpike.setFlag(SpriteFlag.AutoDestroy, true)
     tiles.setTileAt(location, assets.tile`myTile0`)
     tiles.placeOnTile(newSpike, location)
@@ -74,24 +57,7 @@ function changeGravity (gravityIsNormalStyle: boolean) {
     }
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
-    newSpike = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . 9 9 9 9 9 9 9 9 9 9 9 9 9 . . 
-        . 9 9 3 9 3 9 9 9 9 9 9 9 9 . . 
-        . . 9 9 3 9 3 9 9 9 9 9 9 . . . 
-        . . 9 3 9 3 9 3 9 9 9 9 9 . . . 
-        . . . 9 3 9 3 9 9 9 9 9 . . . . 
-        . . . 9 9 3 9 3 9 9 9 9 . . . . 
-        . . . . 9 9 3 9 9 9 9 . . . . . 
-        . . . . 9 3 9 3 9 9 9 . . . . . 
-        . . . . . 9 3 9 9 9 . . . . . . 
-        . . . . . 9 9 3 9 9 . . . . . . 
-        . . . . . . 9 9 9 . . . . . . . 
-        . . . . . . 9 3 9 . . . . . . . 
-        . . . . . . . 9 . . . . . . . . 
-        . . . . . . . 9 . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Spike)
+    newSpike = sprites.create(assets.tile`myTile2`, SpriteKind.Spike)
     newSpike.setFlag(SpriteFlag.AutoDestroy, true)
     tiles.setTileAt(location, assets.tile`myTile0`)
     tiles.placeOnTile(newSpike, location)
@@ -116,20 +82,20 @@ jumpHeight = 33
 jellyJumpHeight = 49
 tiles.setTilemap(tilemap`level1`)
 thePlayer = sprites.create(img`
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-    7 7 1 1 1 7 7 7 7 1 1 1 7 7 
-    7 7 1 1 1 7 7 7 7 1 1 1 7 7 
-    7 7 1 1 1 7 7 7 7 1 1 1 7 7 
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-    7 7 1 1 1 1 1 1 1 1 1 1 7 7 
-    7 1 1 1 1 1 1 1 1 1 1 1 1 7 
-    7 1 1 1 1 1 1 1 1 1 1 1 1 7 
-    7 7 1 1 1 1 1 1 1 1 1 1 7 7 
-    7 7 7 7 1 1 1 1 1 1 7 7 7 7 
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+    3 f f f f f 3 3 f f f f f 3 
+    3 f 7 7 7 f 3 3 f 7 7 7 f 3 
+    3 f 7 7 7 f 3 3 f 7 7 7 f 3 
+    3 f 7 7 7 f 3 3 f 7 7 7 f 3 
+    3 f f f f f 3 3 f f f f f 3 
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+    3 f f f f f f f f f f f f 3 
+    3 f 7 7 7 7 7 7 7 7 7 7 f 3 
+    3 f f f f f f f f f f f f 3 
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 
     `, SpriteKind.Player)
 thePlayer.ay = gravity
 scene.cameraFollowSprite(thePlayer)
@@ -137,20 +103,20 @@ thePlayer.setVelocity(100, 0)
 thePlayer.setFlag(SpriteFlag.Invisible, true)
 frames = scaling.createRotations(thePlayer.image, 16)
 the_players_face = sprites.create(img`
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-    7 7 1 1 1 7 7 7 7 1 1 1 7 7 
-    7 7 1 1 1 7 7 7 7 1 1 1 7 7 
-    7 7 1 1 1 7 7 7 7 1 1 1 7 7 
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 
-    7 7 1 1 1 1 1 1 1 1 1 1 7 7 
-    7 1 1 1 1 1 1 1 1 1 1 1 1 7 
-    7 1 1 1 1 1 1 1 1 1 1 1 1 7 
-    7 7 1 1 1 1 1 1 1 1 1 1 7 7 
-    7 7 7 7 1 1 1 1 1 1 7 7 7 7 
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+    3 f f f f f 3 3 f f f f f 3 
+    3 f 7 7 7 f 3 3 f 7 7 7 f 3 
+    3 f 7 7 7 f 3 3 f 7 7 7 f 3 
+    3 f 7 7 7 f 3 3 f 7 7 7 f 3 
+    3 f f f f f 3 3 f f f f f 3 
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+    3 f f f f f f f f f f f f 3 
+    3 f 7 7 7 7 7 7 7 7 7 7 f 3 
+    3 f f f f f f f f f f f f 3 
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 
     `, SpriteKind.Face)
 the_players_face.setFlag(SpriteFlag.GhostThroughWalls, true)
 currentFrameIndex = 0
